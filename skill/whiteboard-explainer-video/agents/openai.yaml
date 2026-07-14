@@ -1,0 +1,4 @@
+interface:
+  display_name: "Whiteboard Explainer Video"
+  short_description: "Build narrated hand-drawn explainer videos"
+  default_prompt: "Use $whiteboard-explainer-video to turn my topic and source material into a polished narrated whiteboard video."

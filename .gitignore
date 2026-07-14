@@ -1,0 +1,14 @@
+.DS_Store
+node_modules/
+out/
+.remotion/
+public/voiceover.*
+examples/pareto-frontier/public/*Font-Regular.woff2
+*voice-request*
+*voice-response*
+*transcript-private*
+.env
+.env.*
+!.env.example
+__pycache__/
+*.pyc

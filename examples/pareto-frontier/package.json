@@ -1,0 +1,24 @@
+{
+  "name": "pareto-whiteboard-example",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "setup:font": "node scripts/copy-excalifont.mjs",
+    "studio": "remotion studio src/index.ts",
+    "typecheck": "tsc --noEmit",
+    "render": "remotion render src/index.ts ParetoWhiteboard out/pareto-whiteboard.mp4 --codec h264 --crf 18 --pixel-format yuv420p"
+  },
+  "dependencies": {
+    "@excalidraw/excalidraw": "0.17.6",
+    "@remotion/cli": "4.0.489",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "remotion": "4.0.489",
+    "roughjs": "4.6.6"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.12",
+    "@types/react-dom": "18.3.1",
+    "typescript": "5.9.3"
+  }
+}
