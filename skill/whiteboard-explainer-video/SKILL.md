@@ -110,6 +110,7 @@ Run all relevant checks before handoff:
 6. inspect a contact sheet for pacing and visual discontinuities
 7. check narration loudness and music ducking
 8. watch the actual exported file from start to finish when possible
+9. run an isolated micro-detail audit when the video contains dense text, charts, or diagram transitions
 
 Run:
 
@@ -118,6 +119,7 @@ python3 scripts/video_qa.py path/to/final.mp4 --contact-sheet path/to/contact-sh
 ```
 
 Read `references/qa-and-privacy.md` for the full release gate.
+Read `references/isolated-detail-audit.md` for the evidence-gated multi-reviewer pass. Reviewers must receive isolated context (`fork_turns: "none"` or an ephemeral Codex CLI session), not the creative thread that produced the video.
 
 ## Sanitize before sharing or publishing
 

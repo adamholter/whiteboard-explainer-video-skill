@@ -33,6 +33,8 @@ The render is visual-only by default. Supply narration you own or are licensed t
 - [Excalidraw](https://github.com/excalidraw/excalidraw)
 - [RoughJS](https://github.com/rough-stuff/rough)
 
+The workflow also includes an evidence-gated micro-detail audit: separate Luna reviewers inspect non-overlapping frame ranges with no inherited production context, while a parent reviewer verifies every claim before any fix is accepted.
+
 The production and QA guidance needed by this workflow is bundled in sanitized form. No unpublished private skill is required.
 
 ## Privacy
