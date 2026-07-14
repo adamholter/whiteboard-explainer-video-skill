@@ -4,7 +4,7 @@ Use this pass after the creative edit is complete. Its purpose is to catch small
 
 ## Prepare evidence
 
-Split the final exported video into 8-12 non-overlapping time ranges. Extract a contact sheet and individual full-frame samples for each range. Sample at least once per second, plus frames immediately before, during, and after every known transition.
+Split the final exported video into 8-12 non-overlapping time ranges. Extract a contact sheet and individual full-frame samples for each range. Sample at least once per second, plus frames immediately before, during, and after every known transition. For spatial-canvas videos, also render the fully populated canvas at delivery resolution and at original canvas resolution.
 
 The bundled helper creates evenly divided ranges:
 
@@ -14,7 +14,7 @@ scripts/extract-audit-segments.sh final.mp4 audit-frames 10 1
 
 ## Isolate reviewers
 
-Assign one low-cost visual reviewer per range. Do not send the creative thread, known-defect list, source code, or desired conclusion.
+Assign one low-cost visual reviewer per range. Assign at least three independent reviewers to a fully populated spatial canvas because a single reviewer can produce a false negative on dense layouts. Do not send the creative thread, known-defect list, source code, or desired conclusion.
 
 When using built-in Codex subagents, explicitly set:
 
@@ -25,6 +25,8 @@ When using built-in Codex subagents, explicitly set:
   "fork_turns": "none"
 }
 ```
+
+Use Luna exactly. A Terra review does not satisfy this gate.
 
 If the host cannot guarantee isolated subagent context, use a fresh ephemeral Codex CLI process from the audit directory:
 
@@ -57,6 +59,9 @@ and every supplied frame. Report only objectively visible defects:
 - clipping outside the frame or container
 - unreadable labels caused by collisions
 - accidental occlusion or a broken transition artifact
+- section bounds intruding into another section
+- connectors crossing text, cards, or chart marks
+- a section whose aspect ratio forces unrelated content into its camera view
 
 Do not report subjective styling preferences. Do not infer problems from source
 code. Do not report intentional full-frame wipes or partial draw-on animation.
@@ -77,7 +82,7 @@ The parent/integrator must inspect every claimed frame directly. Classify each c
 - `borderline`: overlap is visible but may be intentional foregrounding
 - `rejected`: evidence does not match the claim
 
-Fix confirmed defects only. Do not accept an issue because multiple agents repeated it; duplicated priming can produce duplicated errors.
+Fix confirmed defects only. Do not accept an issue because multiple agents repeated it; duplicated priming can produce duplicated errors. Do not treat one reviewer's `no issues` result as approval when other isolated reviewers provide visible evidence.
 
 ## Verify the correction
 
@@ -85,6 +90,7 @@ Fix confirmed defects only. Do not accept an issue because multiple agents repea
 2. Inspect the corrected frames at full delivery resolution.
 3. Re-run isolated reviewers on the affected ranges using fresh sessions.
 4. Include at least two previously clean control ranges to detect over-reporting.
-5. Render and inspect the complete final artifact.
+5. Re-render and inspect the fully populated canvas.
+6. Render and inspect the complete final artifact.
 
 Record reviewer model, isolation mechanism, reviewed range, number of frames, accepted findings, and rejected findings. Never claim an isolated audit if context was forked from the production thread.
