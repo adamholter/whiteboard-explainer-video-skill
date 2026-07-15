@@ -19,9 +19,22 @@ Use structured data for factual charts and comparisons. Compute derived claims p
 
 Read `references/visual-language.md` before drawing.
 
-Use off-white paper, a subtle dot grid, Excalifont or Virgil, RoughJS-style geometry, graphite marks, and restrained semantic color. Render exact text and factual diagrams in code.
+Use off-white paper, a subtle dot grid, Excalifont or Virgil, RoughJS-style geometry, graphite marks, and restrained semantic color. This is the connective visual language, not a requirement to redraw every asset.
 
 Hand-drawn styling does not relax layout precision. Reserve explicit bounds for every label, card, annotation, arrow, underline, and chart mark. Use fixed-width cells or measured text for tag clouds; never rely on incidental text width to prevent collisions.
+
+## Choose assets deliberately
+
+Inventory user-provided images and authoritative source visuals before designing scenes. For each visual, choose the strongest form:
+
+- use an official chart, screenshot, document excerpt, or supplied image when its provenance increases trust
+- source a current reference image from the web when the real object, interface, person, or evidence matters
+- use image generation or editing for custom Excalidraw-style illustrations, visual metaphors, missing assets, and stylistic unification
+- recreate a visual in code when exact values, responsive animation, legibility, or data transformation requires it
+
+Do not recreate an authoritative chart merely to make it look hand-drawn. Integrate source imagery with whiteboard framing, annotations, callouts, crops, and camera motion. When generated or edited assets need to sit on the paper canvas, request a transparent background or remove/key the background before composition.
+
+Record source and usage rights for non-user assets. Preserve visible source attribution when it contributes to credibility or the source requires it.
 
 ## Build spatial canvases safely
 
