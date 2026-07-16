@@ -25,9 +25,9 @@ for ((i=0; i<segments; i++)); do
   start=$(awk -v i="$i" -v d="$segment_duration" 'BEGIN {printf "%.6f", i*d}')
   dir="$output/segment-$i"
   mkdir -p "$dir"
-  ffmpeg -loglevel error -y -ss "$start" -i "$video" -t "$segment_duration" \
+  ffmpeg -loglevel error -y -i "$video" -ss "$start" -t "$segment_duration" \
     -vf "fps=$fps,scale=1920:-2" -q:v 2 "$dir/frame-%03d.jpg"
-  ffmpeg -loglevel error -y -ss "$start" -i "$video" -t "$segment_duration" \
+  ffmpeg -loglevel error -y -i "$video" -ss "$start" -t "$segment_duration" \
     -vf "fps=$fps,scale=480:-2,tile=4x4:padding=6:margin=6" -frames:v 1 "$dir/contact.jpg"
   printf '{"segment":%d,"start":%s,"duration":%s}\n' "$i" "$start" "$segment_duration" > "$dir/range.json"
 done

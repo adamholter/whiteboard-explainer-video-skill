@@ -67,11 +67,13 @@ Before delivery:
 4. Render the complete video.
 5. Run `scripts/video_qa.py`.
 6. Inspect the first frame, final frame, contact sheet, individual timeline frames, and transition samples.
-7. Run the isolated Luna audit in `references/isolated-detail-audit.md`.
+7. Run the isolated Luna audit in `references/isolated-detail-audit.md` and save its audit receipt beside the QA artifacts.
 8. Verify all accepted fixes in fresh renders.
 9. Reopen the exact final MP4.
 
 The full-canvas overview is a mandatory layout test even when it appears only briefly or never appears in the video.
+
+Do not report visual QA as passed without a complete audit receipt. It must identify the exact video, `gpt-5.6-luna` reviewers with low reasoning and isolated context, every reviewed range, the integrator's disposition of every finding, and fresh-review results after accepted fixes. A missing or incomplete receipt fails the release gate.
 
 ## Sanitize public artifacts
 

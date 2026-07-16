@@ -93,4 +93,4 @@ Fix confirmed defects only. Do not accept an issue because multiple agents repea
 5. Re-render and inspect the fully populated canvas.
 6. Render and inspect the complete final artifact.
 
-Record reviewer model, isolation mechanism, reviewed range, number of frames, accepted findings, and rejected findings. Never claim an isolated audit if context was forked from the production thread.
+Write `audit-receipt.json` beside the audit evidence. Record the final video's SHA-256; each reviewer's model, reasoning level, isolation mechanism, reviewed range, and frame count; every finding and the integrator's disposition; every fresh recheck; and final status. Never claim an isolated audit if context was forked from the production thread. A missing receipt means this gate did not run.
